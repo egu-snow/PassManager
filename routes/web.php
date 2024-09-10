@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AcountController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,8 +20,8 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::get('/acounts','AcountController@index')->name('acount.list');
-Route::get('/acount/{id}','AcountController@show')->name('acount.show');
+Route::get('/acounts',[AcountController::class,'index'])->name('acount.list');
+Route::get('/acount/{id}',[AcountController::class,'show'])->name('acount.show');
 
 
 

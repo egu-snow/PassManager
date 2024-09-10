@@ -7,6 +7,6 @@
     <title>アカウント一覧</title>
 </head>
 <body>
-    
+    <h1>アカウント一覧</h1>
 </body>
 </html>
