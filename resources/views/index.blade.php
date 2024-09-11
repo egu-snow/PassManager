@@ -10,7 +10,11 @@
     <h1>アカウント一覧</h1>
 
     @foreach ($acounts as $acount)
-        <p>{{ $acount['site_name'] }}</p>
+        <p>
+            <a href="{{ route('acount.show',[ 'id'=> $acount-> id]) }}">
+                {{ $acount['site_name'] }}
+            </a>
+        </p>
     @endforeach
 </body>
 </html>

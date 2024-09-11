@@ -13,7 +13,7 @@ class AcountController extends Controller
      */
     public function index()
     {
-        $acounts = Acount::select('site_name')->get();
+        $acounts = Acount::select('id', 'site_name')->get();
         return view('index',compact('acounts'));
     }
 
@@ -36,9 +36,22 @@ class AcountController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Acount $acount)
+    public function show(Request $request, $id, Acount $acount)
     {
-        //
+        $acount = Acount::find($id);
+        $site_name = $acount-> site_name;
+        $login_id = $acount-> login_id;
+        $password = $acount-> password;
+        $mail_address = $acount-> mail_address;
+        $memo = $acount-> memo;
+
+        return view('show',[
+            'site_name'=> $site_name,
+            'login_id'=> $login_id,
+            'password'=> $password,
+            'mail_address'=> $mail_address,
+            'memo'=> $memo
+        ]);
     }
 
     /**
