@@ -8,5 +8,9 @@
 </head>
 <body>
     <h1>アカウント一覧</h1>
+
+    @foreach ($acounts as $acount)
+        <p>{{ $acount['site_name'] }}</p>
+    @endforeach
 </body>
 </html>

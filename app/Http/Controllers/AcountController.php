@@ -13,7 +13,8 @@ class AcountController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $acounts = Acount::select('site_name')->get();
+        return view('index',compact('acounts'));
     }
 
     /**
