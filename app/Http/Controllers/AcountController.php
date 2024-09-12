@@ -20,9 +20,9 @@ class AcountController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+       return view('new');
     }
 
     /**
@@ -30,7 +30,16 @@ class AcountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $acount = new Acount();
+
+        $acount->site_name = $request->site_name;
+        $acount->login_id = $request->login_id;
+        $acount->password = $request->password;
+        $acount->mail_address = $request->mail_address;
+        $acount->memo = $request->memo;
+
+        $acount->save();
+        return redirect()->route('acount.show',['id'=> $acount->id]);
     }
 
     /**
