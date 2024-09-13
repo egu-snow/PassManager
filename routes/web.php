@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/acounts',[AcountController::class,'index'])->name('acount.list');
 Route::get('/acount/new',[AcountController::class,'create'])->name('acount.new');
+Route::post('/acount',[AcountController::class,'store'])->name('acount.store');
 
 Route::get('/acount/{id}',[AcountController::class,'show'])->name('acount.show');
 

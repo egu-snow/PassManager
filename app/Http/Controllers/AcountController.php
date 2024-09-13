@@ -37,7 +37,7 @@ class AcountController extends Controller
         $acount->password = $request->password;
         $acount->mail_address = $request->mail_address;
         $acount->memo = $request->memo;
-
+        $acount->category_numb = $request->category_numb;
         $acount->save();
         return redirect()->route('acount.show',['id'=> $acount->id]);
     }
