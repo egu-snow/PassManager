@@ -1,12 +1,12 @@
 @extends('layout')
 
 @section('content')  
-    <h2>{{ $site_name }}</h2>
+    <h2 class="mb-3">{{ $site_name }}</h2>
 
-    <p>ログインID：{{ $login_id }}</p>
-    <p>パスワード：{{ $password }}</p>
-    <p>メールアドレス：{{ $mail_address }}</p>
-    <p>メモ：{{ $memo }}</p>
+    <p>login ID：{{ $login_id }}</p>
+    <p>password：{{ $password }}</p>
+    <p>Email：{{ $mail_address }}</p>
+    <p>memo：{{ $memo }}</p>
 
     <p>
         <a href={{ route('acount.list') }}>一覧に戻る</a>
