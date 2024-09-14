@@ -11,8 +11,10 @@
     <p>
         <a href={{ route('acount.list') }}>一覧に戻る</a>
     </p>
-    <form action="{{ route('acount.delete')}}" method="DELETE">
-        <button type="submit" class="btn btn-outline-primary">削除</button>
+    <form action="{{ route('acount.delete',[ 'id'=> $id])}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-outline-danger">削除</button>
     </form>
         
 @endsection

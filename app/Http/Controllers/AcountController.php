@@ -53,13 +53,15 @@ class AcountController extends Controller
         $password = $acount-> password;
         $mail_address = $acount-> mail_address;
         $memo = $acount-> memo;
+        $id = $acount-> id;
 
         return view('show',[
             'site_name'=> $site_name,
             'login_id'=> $login_id,
             'password'=> $password,
             'mail_address'=> $mail_address,
-            'memo'=> $memo
+            'memo'=> $memo,
+            'id'=> $id
         ]);
     }
 
@@ -82,8 +84,11 @@ class AcountController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Acount $acount)
+    public function destroy(Request $request, $id, Acount $acount)
     {
-        //
+        $acount = Acount::find($id);
+        $acount->delete();
+        return redirect('/acounts');
     }
+
 }
