@@ -11,5 +11,8 @@
             </a>
         </p>
     @endforeach
+    <div>
+        <a href={{ route('acount.new') }} class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">新規作成</a>
+    </div>
 
 @endsection
