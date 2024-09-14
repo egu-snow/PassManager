@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Acount;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class AcountController extends Controller
 {
@@ -14,6 +15,10 @@ class AcountController extends Controller
     public function index()
     {
         $acounts = Acount::select('id', 'site_name')->get();
+        //復号化
+        foreach($acounts as $acount) {
+            $acount->site_name = Crypt::decryptString($acount->site_name);
+        }
         return view('index',compact('acounts'));
     }
 
@@ -32,11 +37,11 @@ class AcountController extends Controller
     {
         $acount = new Acount();
 
-        $acount->site_name = $request->site_name;
-        $acount->login_id = $request->login_id;
-        $acount->password = $request->password;
-        $acount->mail_address = $request->mail_address;
-        $acount->memo = $request->memo;
+        $acount->site_name = Crypt::encryptString($request->site_name);
+        $acount->login_id = Crypt::encryptString($request->login_id);
+        $acount->password = Crypt::encryptString($request->password);
+        $acount->mail_address = Crypt::encryptString($request->mail_address);
+        $acount->memo = Crypt::encryptString($request->memo);
         $acount->category_numb = $request->category_numb;
         $acount->save();
         return redirect()->route('acount.show',['id'=> $acount->id]);
@@ -48,11 +53,12 @@ class AcountController extends Controller
     public function show(Request $request, $id, Acount $acount)
     {
         $acount = Acount::find($id);
-        $site_name = $acount-> site_name;
-        $login_id = $acount-> login_id;
-        $password = $acount-> password;
-        $mail_address = $acount-> mail_address;
-        $memo = $acount-> memo;
+
+        $site_name = Crypt::decryptString($acount-> site_name);
+        $login_id = Crypt::decryptString($acount-> login_id);
+        $password = Crypt::decryptString($acount-> password);
+        $mail_address = Crypt::decryptString($acount-> mail_address);
+        $memo = Crypt::decryptString($acount-> memo);
         $id = $acount-> id;
 
         return view('show',[
