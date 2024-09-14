@@ -14,7 +14,7 @@
     <form action="{{ route('acount.delete',[ 'id'=> $id])}}" method="POST">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-outline-danger">削除</button>
+        <button type="submit" class="btn btn-outline-danger mt-5">削除</button>
     </form>
         
 @endsection
