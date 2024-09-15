@@ -6,6 +6,8 @@ use App\Models\Acount;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Http\RedirectResponse;
+
 
 class AcountController extends Controller
 {
@@ -33,8 +35,14 @@ class AcountController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
+        //バリデーション
+        $validated = $request->validate([
+            'site_name'=>'required',
+            'category_numb'=>'required|integer',
+        ]);
+        
         $acount = new Acount();
 
         $acount->site_name = Crypt::encryptString($request->site_name);

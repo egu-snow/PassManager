@@ -7,6 +7,16 @@
         <p class="ms-1">入力値は暗号化して保存されます</p>
     </div>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form action="{{ route('acount.store')}}" method="POST">
         @csrf
         <div class="input-group mb-3">
@@ -47,5 +57,5 @@
             <a href="{{ route('acount.list') }}">一覧に戻る</a>
         </div>
     </form>
-    
+
 @endsection

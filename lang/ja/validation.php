@@ -63,7 +63,7 @@ return [
     'image' => ':attributeには画像ファイルを指定してください。',
     'in' => '選択された:attributeは正しくありません。',
     'in_array' => ':attributeには:otherの値を指定してください。',
-    'integer' => ':attributeは整数で指定してください。',
+    'integer' => ':attributeを指定してください。',
     'ip' => ':attributeには、有効なIPアドレスを指定してください。',
     'ipv4' => ':attributeには、有効なIPv4アドレスを指定してください。',
     'ipv6' => ':attributeには、有効なIPv6アドレスを指定してください。',
@@ -170,8 +170,9 @@ return [
         'terms' => [
             'required' => '登録には規約への同意が必須となります。',
         ],
+           
     ],
-
+    
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
@@ -256,6 +257,9 @@ return [
         'updated_at' => '更新日',
         'username' => 'ユーザー名',
         'year' => '年',
+        'category_numb' => 'カテゴリー',
+        'site_name' => 'サイト名',
     ],
-
+    
 ];
+
