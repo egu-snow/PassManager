@@ -91,6 +91,7 @@ class AcountController extends Controller
         $password = Crypt::decryptString($acount-> password);
         $mail_address = Crypt::decryptString($acount-> mail_address);
         $memo = Crypt::decryptString($acount-> memo);
+        $category_numb = $acount-> category_numb;
         $id = $acount-> id;
 
         return view('edit',[
@@ -99,6 +100,7 @@ class AcountController extends Controller
             'password'=> $password,
             'mail_address'=> $mail_address,
             'memo'=> $memo,
+            'category_numb'=> $category_numb,
             'id'=> $id
         ]);
     }

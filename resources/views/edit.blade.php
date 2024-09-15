@@ -43,12 +43,12 @@
         <div class="mb-3">
             <label for="category_numb">Category</label>
             <select name="category_numb" class="form-select">
-                <option selected>-- 再度選択してください --</option>
-                <option value="1">金融サービス</option>
-                <option value="2">ショッピングサイト</option>
-                <option value="3">サブスクリプション</option>
-                <option value="4">コミュニティサイト</option>
-                <option value="5">その他</option>
+                
+                <option value="1" {{ old('category_numb', $category_numb) == '1' ? 'selected' : '' }}>金融サービス</option>
+                <option value="2" {{ old('category_numb', $category_numb) == '2' ? 'selected' : '' }}>ショッピングサイト</option>
+                <option value="3" {{ old('category_numb', $category_numb) == '3' ? 'selected' : '' }}>サブスクリプション</option>
+                <option value="4" {{ old('category_numb', $category_numb) == '4' ? 'selected' : '' }}>コミュニティサイト</option>
+                <option value="5" {{ old('category_numb', $category_numb) == '5' ? 'selected' : '' }}>その他</option>
             </select>
         </div>
     
