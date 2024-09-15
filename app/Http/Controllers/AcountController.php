@@ -106,10 +106,26 @@ class AcountController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Acount $acount)
+    public function update(Request $request, $id, Acount $acount)
     {
-        //
+        //バリデーション
+        $validated = $request->validate([
+            'site_name'=>'required',
+            'category_numb'=>'required|integer',
+        ]);
+        
+        $acount = Acount::find($id);
+
+        $acount->site_name = Crypt::encryptString($request->site_name);
+        $acount->login_id = Crypt::encryptString($request->login_id);
+        $acount->password = Crypt::encryptString($request->password);
+        $acount->mail_address = Crypt::encryptString($request->mail_address);
+        $acount->memo = Crypt::encryptString($request->memo);
+        $acount->category_numb = $request->category_numb;
+        $acount->save();
+        return redirect()->route('acount.show',['id'=> $acount->id]);
     }
+    
 
     /**
      * Remove the specified resource from storage.

@@ -17,7 +17,7 @@
         </div>
     @endif
 
-    <form action="{{ route('acount.store')}}" method="POST">
+    <form action="{{ route('acount.update',['id'=> $id])}}" method="POST">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">site name</span>
