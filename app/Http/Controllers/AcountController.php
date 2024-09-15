@@ -82,9 +82,25 @@ class AcountController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Acount $acount)
+    public function edit(Request $request, $id, Acount $acount)
     {
-        //
+        $acount = Acount::find($id);
+
+        $site_name = Crypt::decryptString($acount-> site_name);
+        $login_id = Crypt::decryptString($acount-> login_id);
+        $password = Crypt::decryptString($acount-> password);
+        $mail_address = Crypt::decryptString($acount-> mail_address);
+        $memo = Crypt::decryptString($acount-> memo);
+        $id = $acount-> id;
+
+        return view('edit',[
+            'site_name'=> $site_name,
+            'login_id'=> $login_id,
+            'password'=> $password,
+            'mail_address'=> $mail_address,
+            'memo'=> $memo,
+            'id'=> $id
+        ]);
     }
 
     /**
