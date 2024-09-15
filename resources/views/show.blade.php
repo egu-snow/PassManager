@@ -9,7 +9,8 @@
     <p>memo：{{ $memo }}</p>
 
     <p>
-        <a href={{ route('acount.list') }}>一覧に戻る</a>
+        <a href={{ route('acount.list') }} class="me-3">一覧に戻る</a>
+        <a href={{ route('acount.edit',[ 'id'=> $id]) }}>編集する</a>
     </p>
     
     <div class="form-check mt-5">
