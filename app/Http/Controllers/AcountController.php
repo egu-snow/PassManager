@@ -16,7 +16,7 @@ class AcountController extends Controller
      */
     public function index()
     {
-        $acounts = Acount::select('id', 'site_name')->get();
+        $acounts = Acount::select('id', 'site_name', 'category_numb')->get();
         //復号化
         foreach($acounts as $acount) {
             $acount->site_name = Crypt::decryptString($acount->site_name);
