@@ -2,7 +2,7 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl px-4 sm:px-6 lg:px-8">    
         <div class="flex justify-between h-16">
-            <a class="navbar-brand pl-2 text-white inline-flex items-center" href={{ route('acount.list') }}>pass manager</a>
+            <a class="navbar-brand pl-2 text-white inline-flex items-center text-xl" href={{ route('acount.list') }}>pass manager</a>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 
