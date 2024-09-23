@@ -16,18 +16,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/acounts',[AcountController::class,'index'])->name('acount.list');
+    Route::get('/acount/new',[AcountController::class,'create'])->name('acount.new');
+    Route::post('/acount',[AcountController::class,'store'])->name('acount.store');
+    Route::get('/acount/edit/{id}',[AcountController::class,'edit'])->name('acount.edit');
+    Route::post('/acount/update/{id}',[AcountController::class,'update'])->name('acount.update');
+
+    Route::get('/acount/{id}',[AcountController::class,'show'])->name('acount.show');
+    Route::delete('/acount/{id}',[AcountController::class,'destroy'])->name('acount.delete');
 });
 
 
 
-Route::get('/acounts',[AcountController::class,'index'])->name('acount.list');
-Route::get('/acount/new',[AcountController::class,'create'])->name('acount.new');
-Route::post('/acount',[AcountController::class,'store'])->name('acount.store');
-Route::get('/acount/edit/{id}',[AcountController::class,'edit'])->name('acount.edit');
-Route::post('/acount/update/{id}',[AcountController::class,'update'])->name('acount.update');
 
-Route::get('/acount/{id}',[AcountController::class,'show'])->name('acount.show');
-Route::delete('/acount/{id}',[AcountController::class,'destroy'])->name('acount.delete');
+
 
 
 require __DIR__.'/auth.php';
