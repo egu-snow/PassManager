@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\RedirectResponse;
-
+use Illuminate\Support\Facades\Auth;
 
 class AcountController extends Controller
 {
@@ -16,7 +16,7 @@ class AcountController extends Controller
      */
     public function index()
     {
-        $acounts = Acount::select('id', 'site_name', 'category_numb')->get();
+        $acounts = Acount::select('id', 'site_name', 'category_numb')->where('user_id', Auth::id())->get();
         //復号化
         foreach($acounts as $acount) {
             $acount->site_name = Crypt::decryptString($acount->site_name);
@@ -51,6 +51,7 @@ class AcountController extends Controller
         $acount->mail_address = Crypt::encryptString($request->mail_address);
         $acount->memo = Crypt::encryptString($request->memo);
         $acount->category_numb = $request->category_numb;
+        $acount->user_id = Auth::id();
         $acount->save();
         return redirect()->route('acount.show',['id'=> $acount->id]);
     }
@@ -68,7 +69,7 @@ class AcountController extends Controller
         $mail_address = Crypt::decryptString($acount-> mail_address);
         $memo = Crypt::decryptString($acount-> memo);
         $id = $acount-> id;
-
+        
         return view('show',[
             'site_name'=> $site_name,
             'login_id'=> $login_id,
