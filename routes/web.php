@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AcountController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SecurityQuestionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,9 +22,18 @@ Route::middleware('auth')->group(function () {
     Route::post('/acount',[AcountController::class,'store'])->name('acount.store');
     Route::get('/acount/edit/{id}',[AcountController::class,'edit'])->name('acount.edit');
     Route::post('/acount/update/{id}',[AcountController::class,'update'])->name('acount.update');
-
-    Route::get('/acount/{id}',[AcountController::class,'show'])->name('acount.show');
     Route::delete('/acount/{id}',[AcountController::class,'destroy'])->name('acount.delete');
+
+    //ミドルウェアあり
+    Route::middleware('check.security.question')->group(function() {
+        Route::get('/acount/{id}',[AcountController::class,'show'])->name('acount.show');
+        //リダイレクト用ルート
+        Route::get('/acount/{id}/redirect',[AcountController::class,'redirectShow'])->name('acount.redirect.show');
+    });
+    
+    Route::get('/security-question',[SecurityQuestionController::class,'show'])->name('security.question');
+    Route::post('/security-question',[SecurityQuestionController::class,'verify']);
+    
 });
 
 

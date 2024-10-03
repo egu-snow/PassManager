@@ -53,13 +53,13 @@ class AcountController extends Controller
         $acount->category_numb = $request->category_numb;
         $acount->user_id = Auth::id();
         $acount->save();
-        return redirect()->route('acount.show',['id'=> $acount->id]);
+        return redirect()->route('acount.redirect.show',['id'=> $acount->id]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, $id, Acount $acount)
+    public function show(Request $request, $id)
     {
         $acount = Acount::find($id);
 
@@ -78,6 +78,11 @@ class AcountController extends Controller
             'memo'=> $memo,
             'id'=> $id
         ]);
+    }
+
+    public function redirectShow(Request $request,$id)
+    {
+        return $this->show($request,$id);
     }
 
     /**
@@ -126,7 +131,7 @@ class AcountController extends Controller
         $acount->memo = Crypt::encryptString($request->memo);
         $acount->category_numb = $request->category_numb;
         $acount->save();
-        return redirect()->route('acount.show',['id'=> $acount->id]);
+        return redirect()->route('acount.redirect.show',['id'=> $acount->id]);
     }
     
 
