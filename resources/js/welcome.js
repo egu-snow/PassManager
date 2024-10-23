@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded',() => {
     
     const blue = document.querySelector('#blue-screen');
     const bluekeyframes = {
-        translate:['0 100vh' , '0 0', '0 -100vh'],
+        transform: ['translate(0, 100vh)' , 'translate(0, 0)', 'translate(0, -100vh)'],
     };
     const blueOptions = {
         duration: 2000,
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
     const gray = document.querySelector('#gray-screen');
     const graykeyframes = {
-        translate:['100vw 0' , '0 0', '-100vw 0'],
+        transform: ['translate(100vw, 0)' , 'translate(0, 0)', 'translate(-100vw, 0)'],
     };
     const grayOptions = {
         duration: 2000,

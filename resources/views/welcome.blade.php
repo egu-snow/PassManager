@@ -25,13 +25,13 @@
         background-color: rgba(187, 239, 246, 0.463);
         position: fixed;
         inset: 0;
-        translate: 0 100vh;
+        transform:  translate(0, 100vh);
     }
     #gray-screen{
         background-color: rgba(0, 0, 0, 0.229);
         position: fixed;
         inset: 0;
-        translate: 100vw 0;
+        transform: translate(100vw, 0);
     }
     #background{
         background: 
