@@ -166,4 +166,31 @@
         </div>
     </div>
 </div>
+<div class="row justify-content-around flex-column flex-md-row">
+    <div class="col-12 col-md-10 mt-3">
+        <div class="card shadow mb-5 bg-body-tertiary rounded">
+            <h5 class="card-header">Afterword</h5>
+            <div class="card-body">
+                <h5 class="card-title">後書き</h5>
+                <p class="card-text">
+                    PHPを学んだうえでLaravelを使ってみましたが、フレームワークの恩恵を感じられるのは
+                    まだまだ修行を積んでからのようです。
+                    <br>しかし、アプリ制作過程で多くのことを学べました。
+                    <br>
+                    <br>MVCモデルの使い方・Laravel 各ファイルの役割
+                    <br>GitHub のリポジトリの考え方
+                    <br>Git のバージョン管理、ブランチの考え方
+                    <br>Git, GitHub を使ったデプロイ、SSH通信
+                    <br>Breeze を使ったログイン機能の実装とカスタマイズ
+                    <br>favicon アイコンの作成
+                    <br>
+                    <br>＜エラーから学んだこと＞
+                    <br>Breeze で作成されたview をカスタマイズする場合、Bootstrap を使うとTailwind CSS と競合して反映されないことがある。
+                    <br>Git を使ってデプロイする場合、開発環境と本番環境でインストールされているプログラミング言語・ミドルウェアのバージョンが一致していないと、競合エラーが発生する。
+                    <br>-dev は開発環境でしか反映しない。本番環境では -buildを使う。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
