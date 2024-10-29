@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class SecurityQuestionController extends Controller
 {
     public function show() {
-        return view('auth.security-question');
+        $user = Auth::user();
+        $question = $user->security_question;
+        
+        return view('auth.security-question', ['question'=>$question]);
     }
 
     public function verify(Request $request) {

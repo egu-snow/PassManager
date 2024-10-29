@@ -12,7 +12,8 @@
                         @csrf
 
                         <div class="form-group">
-                            <label class="mb-1" for="security_answer">{{ __('秘密の質問の答え') }}</label>
+                            <!--<label class="mb-1" for="security_answer">{{ __('秘密の質問の答え') }}</label>-->
+                            <label class="mb-1" for="security_answer">{{ $question }}</label>
                             <input id="security_answer" type="text" class="form-control @error('security_answer') is-invalid @enderror" name="security_answer" required autofocus>
 
                             @error('security_answer')
